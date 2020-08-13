@@ -31,8 +31,6 @@ fun main() {
             val frame = myStft.getFrame(frAddr)
             val index = frame.indexOf(frame.max() ?: 0.0)
             indices.add(index)
-//            println(index)
-//            println(Arrays.toString(frame))
         }
     }
     val stft = STFT(audioInputStream, 4096, 10, 1024)

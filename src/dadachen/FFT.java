@@ -99,7 +99,7 @@ public class FFT {
   public void fft(double[] x, double[] y)
   {
     int i,j,k,n1,n2,a;
-    double c,s,e,t1,t2;
+    double c,s,t1,t2;
   
   
     // Bit-reverse
@@ -124,7 +124,6 @@ public class FFT {
     }
 
     // FFT
-    n1 = 0;
     n2 = 1;
   
     for (i=0; i < m; i++) {
@@ -158,7 +157,7 @@ public class FFT {
 
     FFT fft = new FFT(N);
 
-    double[] window = fft.getWindow();
+    fft.getWindow();
     double[] re = new double[N];
     double[] im = new double[N];
 
@@ -207,12 +206,10 @@ public class FFT {
 
   protected static void printReIm(double[] re, double[] im) {
     System.out.print("Re: [");
-    for(int i=0; i<re.length; i++)
-      System.out.print(((int)(re[i]*1000)/1000.0) + " ");
+    for (double v : re) System.out.print(((int) (v * 1000) / 1000.0) + " ");
 
     System.out.print("]\nIm: [");
-    for(int i=0; i<im.length; i++)
-      System.out.print(((int)(im[i]*1000)/1000.0) + " ");
+    for (double v : im) System.out.print(((int) (v * 1000) / 1000.0) + " ");
 
     System.out.println("]");
   }
