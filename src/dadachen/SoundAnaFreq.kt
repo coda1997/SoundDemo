@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioSystem
 
 
 fun main() {
-    val soundFile = "src/dadachen/fmcw_low.wav"
+    val soundFile = "src/dadachen/fmcw_high.wav"
     val audioInputStream = AudioSystem.getAudioInputStream(File(soundFile))
     val index = mutableListOf<Int>()
     val listener = FrameListener { myStft, frAddr ->
