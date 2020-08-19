@@ -7,6 +7,8 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.spi.AudioFileWriter
+import kotlin.experimental.and
+import kotlin.experimental.or
 
 
 fun calculateShift() {
@@ -16,8 +18,8 @@ fun calculateShift() {
     val s1 = getInputFileByShortArray(path1)
     val s2 = getInputFileByShortArray(path2)
     val outputData = s1 * s2
-//    println(s1.size)
-//    println(outputData.size)
+    println(s1.size)
+    println(outputData.size)
     val s = "src/dadachen/wav/fmcw_output.wav"
     val wav = WavFile.newWavFile(File(s),1,outputData.size.toLong(),16,48000)
     wav.writeFrames(outputData,0, outputData.size)
@@ -54,11 +56,7 @@ fun byteArrayToShortArray(data: ByteArray): ShortArray {
 }
 
 fun bytesToShort(b1: Byte, b2: Byte): Short {
-    val bb: ByteBuffer = ByteBuffer.allocate(2)
-    bb.order(ByteOrder.LITTLE_ENDIAN)
-    bb.put(b1)
-    bb.put(b2)
-    return bb.getShort(0)
+    return ((b1 and 0xFF.toByte()) or (b2.toInt() shl  8 ).toByte()).toShort()
 }
 
 fun main() {
