@@ -74,7 +74,7 @@ fun Boolean.toggle():Boolean = !this
 
 fun main() {
     val isLow = false
-    val path = "src/dadachen/fmcw_${if (isLow) "low" else "high"}.wav"
-    val testPath = "src/dadachen/test.wav"
+    val path = "src/dadachen/wav/fmcw_${if (isLow) "low" else "high"}.wav"
+    val testPath = "src/dadachen/wav/test.wav"
     printFreqDomain(testPath)
 }

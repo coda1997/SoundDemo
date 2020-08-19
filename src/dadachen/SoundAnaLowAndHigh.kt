@@ -7,12 +7,12 @@ import javax.sound.sampled.AudioSystem
 
 
 fun main() {
-    val file = File("data.csv")
+    val file = File("src/dadachen/data.csv")
     if (!file.exists()){
         file.createNewFile()
     }
     val raf = RandomAccessFile(file, "rwd")
-    val soundFile = "src/dadachen/fmcw_low.wav"
+    val soundFile = "src/dadachen/wav/fmcw_low.wav"
     val audioInputStream = AudioSystem.getAudioInputStream(File(soundFile))
     val index = mutableListOf<Int>()
     val lowIndexRange = 1485 until 1670
